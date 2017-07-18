@@ -1,0 +1,184 @@
+## Start
+https://github.com/zhongwei1981/ext-4.2.1.883.git
+	zhongwei1981
+	bl.br.zh1981
+J2EE 7:     https://docs.oracle.com/javaee/7/api/toc.htm
+Tomcat 8.0: http://tomcat.apache.org/tomcat-8.0-doc/index.html
+            http://tomcat.apache.org/tomcat-8.0-doc/api/index.html
+
+
+## 0. Eclipse
+从2006年起，Eclipse基金会每年都会安排同步发布。
+至今，同步发布主要在6月进行，并且会在接下来的9月及2月释放出SR1及SR2版本。
+版本代号 	平台版本 	主要版本发行日期 	SR1发行日期 	SR2发行日期
+Callisto 	3.2 	    2006年6月26日 	    N/A 	        N/A
+Europa 	    3.3 	    2007年6月27日 	    2007年9月28日 	2008年2月29日
+Ganymede 	3.4 	    2008年6月25日 	    2008年9月24日 	2009年2月25日
+Galileo 	3.5 	    2009年6月24日 	    2009年9月25日 	2010年2月26日
+Helios 	    3.6 	    2010年6月23日 	    2010年9月24日 	2011年2月25日
+Indigo 	    3.7 	    2011年6月22日 	    2011年9月23日 	2012年2月24日
+Juno 	    3.8 & 4.2   2012年6月27日 	    2012年9月28日 	2013年3月1日
+Kepler 	    4.3 	    2013年6月26日 	    2013年9月27日 	2014年2月28日
+Luna	    4.4	        2014年6月25日	    2014年9月25日	N/A
+Mars	    4.5	        2015年6月24日	    N/A	            N/A
+Neon	    4.6	        2016年6月22日	    N/A	            N/A
+    Neon - http://download.eclipse.org/releases/neon
+
+F:\zhong_J2EE\bak\eclipse-jee-neon-2-win32-x86_64.zip
+F:\zhong_J2EE\eclipse-jee-neon-2-win32-x86_64\eclipse.ini
+    --launcher.defaultAction
+    openFile
++   -vm
++   D:\Java\jre8\bin
+    --launcher.appendVmargs
+F:\zhong_J2EE\eclipse-jee-neon-2-win32-x86_64\eclipse.exe
+F:\zhong_J2EE\eclipse-jee-neon-2-win32-x86_64\workspace
+
+## 1. Start tomcat
+D:\apache-tomcat-8.0.39\RUNNING.txt
+
+# http://www.runoob.com/jsp/eclipse-jsp.html
+bin：二进制执行文件。
+    D:\apache-tomcat-8.0.39\bin\startup.bat
+    D:\apache-tomcat-8.0.39\bin\shutdown.bat
+        +   set "JRE_HOME=D:\Java\jre7"
+conf:配置目录。
+    D:\apache-tomcat-8.0.39\conf\server.xml
+        可以在里面改端口号等。默认端口号是8080。
+        http://localhost:8080/
+    D:\apache-tomcat-8.0.39\conf\tomcat-users.xml
+        http://localhost:8080/manager/html
+lib：库文件。
+    tomcat运行时需要的jar包所在的目录
+logs：日志
+temp：临时文件/缓存
+webapps：web的应用程序。web应用放置到此目录下浏览器可以直接访问
+    D:\apache-tomcat-8.0.39\webapps\ROOT\test.jsp <--> http://localhost:8080/test.jsp
+work：编译以后的class文件。
+
+TODO: from eclipse to start tomcat
+
+## 2. Java Servlet
+是用Java编写的服务器端程序。其主要功能在于交互式地浏览和修改数据，生成动态Web内容。
+    Web Browser <--(HTTP Protocol)--> HTTP Server <--> Servlet Program <--> Database
+Java Servlet 是运行在带有支持 Java Servlet 规范的解释器的 web 服务器上的 Java 类。
+Servlet 可以使用 javax.servlet 和 javax.servlet.http 包创建，它是 Java 企业版的标准组成部分，
+    Java 企业版是支持大型开发项目的 Java 类库的扩展版本。
+这些类实现 Java Servlet 和 JSP 规范。
+
+Apache和Tomcat整合，两者都有HTTP服务的功能：
+    Web服务器专门处理HTTP请求(request)
+    如果client请求的是静态页面，则只需要Apache服务器响应请求；
+    如果client请求动态页面，则是Tomcat服务器响应请求；因为jsp是服务器端解释代码的，这样整合就可以减少Tomcat的服务开销
+        Tomcat将动态网页（如asp、jsp、php、cgi）解析后回传给Apache服务器，再经Apache返回给浏览器端。
+        Tomcat是运行servlet和JSP Web应用软件的基于Java的Web应用软件容器
+        Tomcat是Java Servlet 2.2和Java Server Pages 1.1技术的标准实现
+
+JSP(Java Server Pages) vs Servlet
+    JSP是一种实现普通静态HTML和动态HTML混合编码的技术，JSP并没有增加任何本质上不能用Servlet实现的功能。
+    但是，在JSP中编写静态HTML更加方便，不必再用println语句来输出每一行 HTML 代码。
+    更重要的是，借助内容和外观的分离，页面制作中不同性质的任务可以方便地分开：
+        比如，由页面设计者进行HTML设计，同时留出供Servlet程序员插入动态内容的空间。
+    在Web应用程序中，一个Servlet在一个时刻可能被多个用户同时访问。
+        如果Servlet需要共享资源，需要保证Servlet是线程安全的。
+
+http://www.runoob.com/servlet/servlet-environment-setup.html
+set CATALINA=D:\apache-tomcat-8.0.39
+set CLASSPATH=%CATALINA%\lib\servlet-api.jar;%CLASSPATH%
+
+## 3. JavaScript
+http://www.runoob.com/js/js-tutorial.html
+1. HTML 定义了网页的内容
+2. CSS 描述了网页的布局
+3. JavaScript 网页的行为
+HTML中:
+    <body>
+        <script> 脚本 </script>
+    </body>
+    <head>
+        <script> 脚本 </script>
+    </head>
+JSON 是用于存储和传输数据的格式, 通常用于服务端向网页传递数据
+    {"employees":[
+        {"firstName":"John", "lastName":"Doe"},
+        {"firstName":"Anna", "lastName":"Smith"},
+        {"firstName":"Peter", "lastName":"Jones"}
+    ]}
+通过 HTML DOM，可访问 JavaScript HTML 文档的所有元素。
+HTML DOM (文档对象模型)
+    当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
+HTML DOM 模型被构造为对象的树：
+                        Document
+                            |
+                    Root element(<html>)
+                            |
+        -------------------------------------------------------------
+        |                                                           |
+    Element(<head>)                                             Element(<body>)
+        |                                                           |
+        |                                               -------------------------
+        |                                               |                       |
+    Element(<title>)         Attribute("href") ---- Element(<a>)            Element(<h1>)
+        |                                               |                       |
+    Text("My title")                                Text("My Link")         Text("My header")
+* 通过可编程的对象模型，JavaScript 获得了足够的能力来创建动态的 HTML。
+    JavaScript 能够改变页面中的所有 HTML 元素
+    JavaScript 能够改变页面中的所有 HTML 属性
+    JavaScript 能够改变页面中的所有 CSS 样式
+    JavaScript 能够对页面中的所有事件做出反应
+* 查找 HTML 元素
+通常，通过 JavaScript，您需要操作 HTML 元素。
+为了做到这件事情，您必须首先找到该元素。有三种方法来做这件事：
+    通过 id 找到 HTML 元素
+        var x=document.getElementById("intro"); 
+    通过 标签名 找到 HTML 元素
+        var x=document.getElementById("main");
+        var y=x.getElementsByTagName("p"); 
+    通过 类名 找到 HTML 元素
+        var x=document.getElementsByClassName("intro"); 
+* JavaScript HTML DOM 事件
+如需在用户点击某个元素时执行代码，请向一个 HTML 事件属性添加 JavaScript 代码：
+    onclick=JavaScript 
+HTML 事件的例子：
+    当 用户点击鼠标 时      <button onclick="displayDate()">点这里</button>    onmousedown & onmouseup & onclick
+    当 网页已加载 时        <body onload="checkCookies()"> 
+    当 图像已加载 时
+    当 鼠标移动到元素上 时    <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:#D94A38;width:120px;height:20px;padding:40px;">Mouse Over Me</div>
+    当 输入字段被改变 时     <input type="text" id="fname" onchange="upperCase()">
+    当 提交 HTML 表单 时
+    当 用户触发按键 时
+在 用户点击按钮时 触发监听事件：
+    document.getElementById("myBtn").addEventListener("click", displayDate);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
