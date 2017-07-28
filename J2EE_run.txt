@@ -1,10 +1,22 @@
 ## Start
-https://github.com/zhongwei1981/ext-4.2.1.883.git
-	zhongwei1981
-	bl.br.zh1981
-J2EE 7:     https://docs.oracle.com/javaee/7/api/toc.htm
-Tomcat 8.0: http://tomcat.apache.org/tomcat-8.0-doc/index.html
+0. Eclipse:	Oxygen
+				http://ftp.jaist.ac.jp/pub/eclipse/technology/epp/downloads/release/oxygen/R/eclipse-jee-oxygen-R-win32-x86_64.zip
+			Neon (4.6)
+				http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/3/eclipse-jee-neon-3-win32-x86_64.zip
+			Mars (4.5)
+			Luna (4.4)
+			Kepler (4.3)
+			Juno (4.2)
+1. Tomcat 8.0: http://tomcat.apache.org/tomcat-8.0-doc/index.html
             http://tomcat.apache.org/tomcat-8.0-doc/api/index.html
+2. Java Servlet
+3. JavaScript
+github:		https://github.com/zhongwei1981/ext-4.2.1.883.git
+				zhongwei1981
+				bl.br.zh1981
+J2EE 7:     https://docs.oracle.com/javaee/7/api/toc.htm
+Java 8:		D:\Java\jdk1.8.0_25
+			D:\Java\jre1.8.0_25
 
 
 ## 0. Eclipse
@@ -23,6 +35,8 @@ Luna	    4.4	        2014年6月25日	    2014年9月25日	N/A
 Mars	    4.5	        2015年6月24日	    N/A	            N/A
 Neon	    4.6	        2016年6月22日	    N/A	            N/A
     Neon - http://download.eclipse.org/releases/neon
+Oxygen		4.7			2017年6月29日
+	Oxygen - http://download.eclipse.org/releases/Oxygen
 
 F:\zhong_J2EE\bak\eclipse-jee-neon-2-win32-x86_64.zip
 F:\zhong_J2EE\eclipse-jee-neon-2-win32-x86_64\eclipse.ini
@@ -34,8 +48,22 @@ F:\zhong_J2EE\eclipse-jee-neon-2-win32-x86_64\eclipse.ini
 F:\zhong_J2EE\eclipse-jee-neon-2-win32-x86_64\eclipse.exe
 F:\zhong_J2EE\eclipse-jee-neon-2-win32-x86_64\workspace
 
+Eclipse Configuration:
+	Tomcat plugin 9.1.2
+		https://sourceforge.NET/projects/tomcatplugin/files/
+		E:\j2ee_home\bak\eclipse\net.sf.eclipse.tomcat.updatesite-2016-09-21
+	Windows->Preferece->Tomcat->Tomcat home: E:\J2EE_project\apache-tomcat-9.0.0.M22-windows-x64
+		E:\J2EE_project\apache-tomcat-9.0.0.M22-windows-x64\conf\Catalina\localhost
+	Windows->Preferece->General->Web Broser->New
+		use external browser: chrome
+	File->New->Dynamic Web Project
+
 ## 1. Start tomcat
 D:\apache-tomcat-8.0.39\RUNNING.txt
+D:\apache-tomcat-8.0.39\bin\startup.bat
+D:\apache-tomcat-8.0.39\bin\shutdown.bat
+	D:\apache-tomcat-8.0.39\bin\catalina.bat
+		set "JAVA_HOME=D:\Java\jdk1.8.0_25"
 
 # http://www.runoob.com/jsp/eclipse-jsp.html
 bin：二进制执行文件。
@@ -130,18 +158,18 @@ HTML DOM 模型被构造为对象的树：
 通常，通过 JavaScript，您需要操作 HTML 元素。
 为了做到这件事情，您必须首先找到该元素。有三种方法来做这件事：
     通过 id 找到 HTML 元素
-        var x=document.getElementById("intro"); 
+        var x=document.getElementById("intro");
     通过 标签名 找到 HTML 元素
         var x=document.getElementById("main");
-        var y=x.getElementsByTagName("p"); 
+        var y=x.getElementsByTagName("p");
     通过 类名 找到 HTML 元素
-        var x=document.getElementsByClassName("intro"); 
+        var x=document.getElementsByClassName("intro");
 * JavaScript HTML DOM 事件
 如需在用户点击某个元素时执行代码，请向一个 HTML 事件属性添加 JavaScript 代码：
-    onclick=JavaScript 
+    onclick=JavaScript
 HTML 事件的例子：
     当 用户点击鼠标 时      <button onclick="displayDate()">点这里</button>    onmousedown & onmouseup & onclick
-    当 网页已加载 时        <body onload="checkCookies()"> 
+    当 网页已加载 时        <body onload="checkCookies()">
     当 图像已加载 时
     当 鼠标移动到元素上 时    <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:#D94A38;width:120px;height:20px;padding:40px;">Mouse Over Me</div>
     当 输入字段被改变 时     <input type="text" id="fname" onchange="upperCase()">
